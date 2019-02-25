@@ -6,6 +6,8 @@ This module serves as an example Page Builder module utilising TypeScript. This 
 
 The tooling within this repository do commit the generated TypeScript into the version control system. If you have sufficient build tools you can modify these scripts to only build when you're releasing.
 
+**Note:** Magento itself does not provide support for using this tooling.
+
 ## Usage
 You can install the dependencies within this module using:
 ```bash
