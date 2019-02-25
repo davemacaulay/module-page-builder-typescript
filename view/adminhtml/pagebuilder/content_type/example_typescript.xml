@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="example-typescript"
+          label="TypeScript"
+          component="Magento_PageBuilder/js/content-type-collection"
+          preview_component="DaveMacaulay_PageBuilderTypescript/js/content-type/example-typescript/preview"
+          master_component="Magento_PageBuilder/js/content-type/master-collection"
+          form="pagebuilder_example_typescript_form"
+          menu_section="layout"
+          icon="icon-pagebuilder-row"
+          sortOrder="1"
+          translate="label">
+        <appearances>
+            <appearance default="true"
+                        name="default"
+                        preview_template="DaveMacaulay_PageBuilderTypescript/content-type/example-typescript/default/preview"
+                        master_template="DaveMacaulay_PageBuilderTypescript/content-type/example-typescript/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <style name="text_align" source="text_align"/>
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="justify_content" source="justify_content" persistence_mode="read"/>
+                        <style name="min_height" source="min_height" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins" preview_converter="Magento_PageBuilder/js/content-type/row/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings" preview_converter="Magento_PageBuilder/js/content-type/row/converter/style/paddings"/>
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                    </element>
+                    <element name="image">
+                        <attribute name="image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+        <additional_data>
+            <item name="uploaderConfig" xsi:type="array">
+                <item name="maxFileSize" xsi:type="object">ImageMaxFileSizeDesktop</item>
+                <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png</item>
+                <item name="component" xsi:type="string">Magento_PageBuilder/js/form/element/image-uploader</item>
+                <item name="componentType" xsi:type="string">imageUploader</item>
+                <item name="dataScope" xsi:type="string">image</item>
+                <item name="formElement" xsi:type="string">imageUploader</item>
+                <item name="uploaderConfig" xsi:type="array">
+                    <item name="url" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\Uploader\SaveUrl</item>
+                </item>
+                <item name="previewTmpl" xsi:type="string">Magento_PageBuilder/form/element/uploader/preview</item>
+                <item name="template" xsi:type="string">Magento_PageBuilder/form/element/uploader/preview/image</item>
+                <item name="mediaGallery" xsi:type="array">
+                    <item name="openDialogUrl" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\Uploader\OpenDialogUrl</item>
+                    <item name="openDialogTitle" xsi:type="string" translate="true">Insert Images...</item>
+                    <item name="initialOpenSubpath" xsi:type="string">wysiwyg</item>
+                    <item name="storeId" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\StoreId</item>
+                </item>
+                <item name="validation" xsi:type="array">
+                    <item name="required-entry" xsi:type="boolean">true</item>
+                </item>
+            </item>
+        </additional_data>
+    </type>
+</config>

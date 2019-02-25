@@ -1,0 +1,20 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div class="pagebuilder-content-type pagebuilder-example-typescript type-nested" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <render args="getOptions().template" />
+    <figure attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <scope args="getUploader().getUiComponent()">
+            <render />
+        </scope>
+        <img if="data.image.attributes().src"
+             attr="data.image.attributes"
+             class="preview-image"
+             css="data.image.css"
+             ko-style="data.image.style" />
+    </figure>
+</div>

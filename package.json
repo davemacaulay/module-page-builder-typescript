@@ -1,0 +1,39 @@
+{
+    "name": "@davemacaulay/module-page-builder-typescript",
+    "version": "1.0.0",
+    "description": "PageBuilder TypeScript module",
+    "scripts": {
+        "test:static": "tslint --project tsconfig.json",
+        "test:static:log": "set -o pipefail; npm run test:static | tee tslint-errors.txt",
+        "ts:errors": "tsc --noEmit",
+        "test:errors:log": "set -o pipefail; npm run ts:errors | tee tsc-errors.txt",
+        "ts:errors:watch": "npm run ts:errors -- -watch",
+        "ts:lint": "tslint --fix --project .",
+        "ts:build": "babel view/adminhtml/web/ts/js/ --out-dir view/adminhtml/web/js/ --extensions '.ts,.tsx' --source-maps",
+        "ts:watch": "npm run ts:build -- --watch",
+        "start": "concurrently -n 'compiler,errors' -c 'green,red' 'npm run ts:watch' 'npm run ts:errors:watch'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davemacaulay/module-page-builder-typescript.git"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.0.0",
+        "@babel/core": "^7.0.0",
+        "@babel/plugin-proposal-class-properties": "^7.3.0",
+        "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+        "@babel/plugin-transform-modules-amd": "^7.0.0",
+        "@babel/preset-env": "^7.3.1",
+        "@babel/preset-typescript": "^7.0.0",
+        "@comandeer/babel-plugin-banner": "^4.1.0",
+        "@magento/page-builder-types": "git+https://github.com/magento-obsessive-owls/page-builder-types.git",
+        "concurrently": "^4.1.0",
+        "tslint": "^5.12.1",
+        "typescript": "^3.2.4"
+    },
+    "author": "Dave Macaulay",
+    "license": "SEE LICENSE IN LICENSE_EE.txt",
+    "dependencies": {
+        "@babel/polyfill": "^7.0.0"
+    }
+}

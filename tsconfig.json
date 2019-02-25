@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "module": "esnext",
+        "target": "es2015",
+        "allowJs": true,
+        "noImplicitAny": true,
+        "pretty": true,
+        "allowSyntheticDefaultImports": true,
+        "typeRoots": [
+            "./node_modules/@types/",
+            "./node_modules/@magento/"
+        ],
+        "lib": [
+            "es2015",
+            "es2015.iterable",
+            "es2015.promise",
+            "dom",
+            "es7"
+        ]
+    },
+    "include": [
+        "./**/*.d.ts",
+        "./**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
